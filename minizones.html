@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="minizones.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    // Some zones tests
+    console.log("MiniZones testing");
+    zone.set("name","bla");
+    console.log("test0", zone.get_id(), zone.get("name") === "bla");
+    zone.fork(function() {
+        console.log("test1", zone.get_id(), zone.get("name") === undefined);
+        zone.set("name","second");
+        console.log("test2", zone.get_id(), zone.get("name") === "second");
+        zone.fork(function(){
+            console.log("test3", zone.get_id(), zone.get("name") === undefined);
+            zone.set("name","third");
+            console.log("test4", zone.get_id(), zone.get("name") === "third");
+
+            setTimeout(function(){
+                console.log("test5", zone.get_id(), zone.get("name") === "third")
+            },1000);
+        });
+        console.log("test6", zone.get_id(), zone.get("name") === "second");
+    });
+    console.log("test7", zone.get_id(), zone.get("name")=="bla");
+</script>
+
+</body>
+</html>
