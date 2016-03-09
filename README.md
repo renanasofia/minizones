@@ -1,5 +1,4 @@
-# minizones
-## experminets with AngularJS zone like library
+# minizones - experminets with AngularJS zone like library
 
 `
 // Set "name" attribute on current zone
