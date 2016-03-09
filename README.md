@@ -1,3 +1,7 @@
+# minizones
+## experminets with AngularJS zone like library
+
+`
 // Set "name" attribute on current zone
 zone.set("name","Test0");
 
@@ -16,3 +20,4 @@ zone.fork(function() {
 })
 
 console.log("test global zone", zone.get("name") == "Test0");
+`
